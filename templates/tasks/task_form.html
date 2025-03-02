@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.id %}Edit Task{% else %}Create Task{% endif %}</title>
+</head>
+<body>
+    <h1>{% if form.instance.id %}Edit Task{% else %}Create Task{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'task_list' project.id %}">Cancel</a>
+</body>
+</html>

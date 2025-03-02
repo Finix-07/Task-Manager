@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tasks for {{ project.name }}</title>
+</head>
+<body>
+    <h1>Tasks for {{ project.name }}</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> - {{ task.status }}
+                <p>{{ task.description }}</p>
+                <p>Assigned to: {{ task.assigned_to.username }}</p>
+            </li>
+        {% endfor %}
+        <a href="{% url 'task_create' project.id %}">Create New Task</a>
+    </ul>
+</body>
+</html>
